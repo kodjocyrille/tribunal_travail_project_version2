@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Système de Gestion du Tribunal du Travail du Togo",
+  "description": "Plateforme complète de gestion des affaires judiciaires pour le Tribunal du Travail du Togo, couvrant l'enrôlement, la planification des audiences, le délibéré et les statistiques ministérielles.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
