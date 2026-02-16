@@ -4,7 +4,7 @@ import { Affaire, Audience, PlumitifEntry, Credentials, AuthResponse, StatsRepor
 // =========================================================
 // CONFIGURATION : CHANGER L'URL ICI POUR CONNECTER TON BACKEND
 // =========================================================
-const BASE_URL = 'http://localhost:5044/api';
+const BASE_URL = 'https://tribunal-travail.runasp.net/api';
 
 /**
  * Wrapper de requête générique (pour gérer les tokens et les erreurs)
@@ -96,17 +96,17 @@ export const ApiService = {
 
   // B. GESTION DE L'ENRÔLEMENT (/affaires)
   affaires: {
-    getAll: (filters?: string) => request<ApiResponse<Affaire[]>>(`/affaires${filters ? '?' + filters : ''}`),
-    getById: (id: string) => request<ApiResponse<Affaire>>(`/affaires/${id}`),
-    create: (data: EnrolementRequest) => request<ApiResponse<Affaire>>('/affaires/enroler', {
+    getAll: (filters?: string) => request<ApiResponse<Affaire[]>>(`/affaires/${filters ? '?' + filters : ''}`),
+    getById: (id: string) => request<ApiResponse<Affaire>>(`/affaires/${id}/`),
+    create: (data: EnrolementRequest) => request<ApiResponse<Affaire>>('/affaires/enroler/', {
       method: 'POST',
-      body: JSON.stringify(data)
+      body: JSON.stringify({ request: data })
     }),
-    update: (id: string, data: Partial<Affaire>) => request<ApiResponse<Affaire>>(`/affaires/${id}`, {
+    update: (id: string, data: Partial<Affaire>) => request<ApiResponse<Affaire>>(`/affaires/${id}/`, {
       method: 'PATCH',
       body: JSON.stringify({ request: data })
     }),
-    renvoyer: (id: string, data: RenvoyerRequest) => request<ApiResponse<void>>(`/affaires/${id}/renvoyer`, {
+    renvoyer: (id: string, data: RenvoyerRequest) => request<ApiResponse<void>>(`/affaires/${id}/renvoyer/`, {
       method: 'POST',
       body: JSON.stringify({ request: data })
     }),
@@ -114,21 +114,21 @@ export const ApiService = {
 
   // C. PLANIFICATION ET RÔLES (/audiences)
   audiences: {
-    getAll: () => request<Audience[]>('/audiences'),
-    getDaily: (date: string) => request<Audience[]>(`/audiences/daily?date=${date}`),
-    create: (data: Partial<Audience>) => request<Audience>('/audiences', { method: 'POST', body: JSON.stringify(data) }),
+    getAll: () => request<Audience[]>('/audiences/'),
+    getDaily: (date: string) => request<Audience[]>(`/audiences/daily/?date=${date}`),
+    create: (data: Partial<Audience>) => request<Audience>('/audiences/', { method: 'POST', body: JSON.stringify({ request: data }) }),
   },
 
   // D. GESTION DES PLUMITIFS (/plumitifs)
   plumitifs: {
-    getByAffaire: (affaireId: string) => request<PlumitifEntry[]>(`/plumitifs?affaireId=${affaireId}`),
-    create: (data: Partial<PlumitifEntry>) => request<PlumitifEntry>('/plumitifs', { method: 'POST', body: JSON.stringify(data) }),
+    getByAffaire: (affaireId: string) => request<PlumitifEntry[]>(`/plumitifs/?affaireId=${affaireId}`),
+    create: (data: Partial<PlumitifEntry>) => request<PlumitifEntry>('/plumitifs/', { method: 'POST', body: JSON.stringify({ request: data }) }),
   },
 
   // E. STATISTIQUES (/stats)
   stats: {
-    getDashboard: () => request<any>('/stats/dashboard'),
-    getReports: (debut: string, fin: string) => request<StatsReport>(`/stats/reports?debut=${debut}&fin=${fin}`),
-    syncToMinistry: (data: any) => request<any>('/stats/sync-db', { method: 'POST', body: JSON.stringify(data) }),
+    getDashboard: () => request<any>('/stats/dashboard/'),
+    getReports: (debut: string, fin: string) => request<StatsReport>(`/stats/reports/?debut=${debut}&fin=${fin}`),
+    syncToMinistry: (data: any) => request<any>('/stats/sync-db/', { method: 'POST', body: JSON.stringify({ request: data }) }),
   }
 };
