@@ -100,11 +100,11 @@ export const ApiService = {
     getById: (id: string) => request<ApiResponse<Affaire>>(`/affaires/${id}/`),
     create: (data: EnrolementRequest) => request<ApiResponse<Affaire>>('/affaires/enroler/', {
       method: 'POST',
-      body: JSON.stringify({ request: data })
+      body: JSON.stringify(data)
     }),
     update: (id: string, data: Partial<Affaire>) => request<ApiResponse<Affaire>>(`/affaires/${id}/`, {
       method: 'PATCH',
-      body: JSON.stringify({ request: data })
+      body: JSON.stringify(data)
     }),
     renvoyer: (id: string, data: RenvoyerRequest) => request<ApiResponse<void>>(`/affaires/${id}/renvoyer/`, {
       method: 'POST',
@@ -116,19 +116,19 @@ export const ApiService = {
   audiences: {
     getAll: () => request<Audience[]>('/audiences/'),
     getDaily: (date: string) => request<Audience[]>(`/audiences/daily/?date=${date}`),
-    create: (data: Partial<Audience>) => request<Audience>('/audiences/', { method: 'POST', body: JSON.stringify({ request: data }) }),
+    create: (data: Partial<Audience>) => request<Audience>('/audiences/', { method: 'POST', body: JSON.stringify(data) }),
   },
 
   // D. GESTION DES PLUMITIFS (/plumitifs)
   plumitifs: {
     getByAffaire: (affaireId: string) => request<PlumitifEntry[]>(`/plumitifs/?affaireId=${affaireId}`),
-    create: (data: Partial<PlumitifEntry>) => request<PlumitifEntry>('/plumitifs/', { method: 'POST', body: JSON.stringify({ request: data }) }),
+    create: (data: Partial<PlumitifEntry>) => request<PlumitifEntry>('/plumitifs/', { method: 'POST', body: JSON.stringify(data) }),
   },
 
   // E. STATISTIQUES (/stats)
   stats: {
     getDashboard: () => request<any>('/stats/dashboard/'),
     getReports: (debut: string, fin: string) => request<StatsReport>(`/stats/reports/?debut=${debut}&fin=${fin}`),
-    syncToMinistry: (data: any) => request<any>('/stats/sync-db/', { method: 'POST', body: JSON.stringify({ request: data }) }),
+    syncToMinistry: (data: any) => request<any>('/stats/sync-db/', { method: 'POST', body: JSON.stringify(data) }),
   }
 };

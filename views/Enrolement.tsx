@@ -96,8 +96,8 @@ export const Enrolement: React.FC = () => {
         email: p.email || "",
         telephone: p.telephone || "",
         adresse: p.adresse || "",
-        typePersonne: "PHYSIQUE",
-        typePartie: p.type === 'demandeur' ? "DEMANDEUR" : "DEFENDEUR",
+        typePersonne: "Physique",
+        typePartie: p.type === 'demandeur' ? "Demandeur" : "Defendeur",
         qualite: p.qualite,
         observations: ""
       })),
