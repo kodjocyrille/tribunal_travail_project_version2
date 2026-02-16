@@ -98,7 +98,7 @@ const DossierHistoryModal = ({
             {/* Timeline */}
             <div className="lg:col-span-2">
               <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-6 flex items-center">
-                <Clock size={14} className="mr-2" /> Ch-ronologie des actesSSSSS
+                <Clock size={14} className="mr-2" /> Chronologie des actes 
               </h4>
 
               <div className="relative space-y-6 pl-6 border-l-2 border-gray-200">
@@ -324,7 +324,7 @@ export const AffairesList: React.FC = () => {
     <div className="space-y-6 animate-in fade-in duration-500">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 tracking-tight uppercase">Rôle Général des Affaires</h2>
+          <h2 className="text-2xl font-bold text-gray-900 tracking-tight uppercase">Rôle Général des Affairesttttttttttt</h2>
           <p className="text-gray-500 text-sm mt-1">Registre central de tous les dossiers enrôlés au tribunal.</p>
         </div>
         <div className="flex space-x-3">
