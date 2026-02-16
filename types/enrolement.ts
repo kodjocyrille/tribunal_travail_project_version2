@@ -9,12 +9,21 @@ export interface EnrolementRequest {
     natureAudienceConciliation: string; // TypeAudienceConciliation (NORMAL, REFERE, URGENCE)
     dateAudienceConciliation: string; // ISO Date "YYYY-MM-DD"
     parties: {
-        type: 'demandeur' | 'defendeur';
+        type: 'DEMANDEUR' | 'DEFENDEUR';
         qualite: string;
-        nom: string;
+        nomComplet: string;
         adresse: string;
         prenom?: string; // Facultatif
         email?: string; // Facultatif
         telephone?: string; // Facultatif
+        nomEntite?: string;
+        //   "numeroRccm": "string",
+        //   "email": "string",
+        //   "telephone": "string",
+        //   "adresse": "string",
+        //   "typePersonne": "PHYSIQUE",
+        //   "typePartie": "DEMANDEUR",
+        //   "qualite": "string",
+        //   "observations": "string"
     }[];
 }
