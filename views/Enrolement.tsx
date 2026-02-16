@@ -78,7 +78,8 @@ export const Enrolement: React.FC = () => {
       [NatureAffaire.AUT]: 'Autre'
     };
 
-    // Mapping des valeurs pour correspondre à l'API
+    // Mapping des valeurs pour correspondre à l'APIkkkk
+    //Mapping des types de personnes et de parties
     const enrolementData: EnrolementRequest = {
       natureLitige: NATURE_MAPPING[formData.nature] || 'Autre', // Tous les autres mappés sur AUTRE
       typeDossier: formData.typeDossier === 'individuel' ? 'INDIVIDUEL' : 'COLLECTIF',
@@ -96,8 +97,8 @@ export const Enrolement: React.FC = () => {
         email: p.email || "",
         telephone: p.telephone || "",
         adresse: p.adresse || "",
-        typePersonne: "Physique",
-        typePartie: p.type === 'demandeur' ? "Demandeur" : "Defendeur",
+        typePersonne: "PHYSIQUE",
+        typePartie: p.type === 'demandeur' ? "DEMANDEUR" : "DEFENDEUR",
         qualite: p.qualite,
         observations: ""
       })),
