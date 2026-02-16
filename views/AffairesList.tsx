@@ -98,7 +98,7 @@ const DossierHistoryModal = ({
             {/* Timeline */}
             <div className="lg:col-span-2">
               <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-6 flex items-center">
-                <Clock size={14} className="mr-2" /> Chronologie des actes
+                <Clock size={14} className="mr-2" /> Ch-ronologie des actesSSSSS
               </h4>
 
               <div className="relative space-y-6 pl-6 border-l-2 border-gray-200">
