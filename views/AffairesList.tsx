@@ -324,7 +324,7 @@ export const AffairesList: React.FC = () => {
     <div className="space-y-6 animate-in fade-in duration-500">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 tracking-tight uppercase">Rôle Général des Affairesttttttttttt</h2>
+          <h2 className="text-2xl font-bold text-gray-900 tracking-tight uppercase">Rôle Général des Affaires</h2>
           <p className="text-gray-500 text-sm mt-1">Registre central de tous les dossiers enrôlés au tribunal.</p>
         </div>
         <div className="flex space-x-3">
